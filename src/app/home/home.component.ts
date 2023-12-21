@@ -6,17 +6,14 @@ import { signal } from '@angular/core';
   selector: 'app-home',
   standalone: true,
   imports: [WelcomeComponent],
-  template: `
-    <app-welcome
-     [name]= 'user.name'
-     (cookiesAccepted)="handleCookies()"
-     /> 
+  template: ` 
     <p>I am the home component</p>
+    <p>Hi, {{name()}}!</p>
   `,
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  user = signal("Josh");
+  name = signal('Josh');
 
   handleCookies() {
     console.log('Do something!')
